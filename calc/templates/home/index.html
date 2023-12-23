@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block dev %}
+<body>
+    <h1>How are brother everthing is fine</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus, aspernatur minima, non quibusdam in sint at rerum error numquam, doloremque mollitia. Porro repellat distinctio repellendus facilis commodi blanditiis nostrum.</p>
+    
+    <a rel="stylesheet" href="/about/">
+      about
+    </a>
+
+    <h1>{{name}}</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">age</th>
+            <th scope="col">Can Vote</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for people in peoples %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{people.name}}</td>
+            <td>{{people.age}}</td>
+
+            <td>
+                {%if people.age >= 18%}
+                yes
+                {%else%}
+                No
+                {% endif %}
+            </td>
+
+          </tr>
+        {% endfor %}
+        
+        </tbody>
+      </table>
+</body>
+{% endblock %}
